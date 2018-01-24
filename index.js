@@ -1,5 +1,5 @@
 function getFirstSelector(selector){
-  return document.querySelector('selector');
+  return document.querySelector(`${selector}`);
 }
 
 function nestedTarget(){
@@ -7,6 +7,14 @@ function nestedTarget(){
 }
 
 function increaseRankBy(n){
-  var el = document.getElementsByClassName('ranked-list');
-  console.log(el);
+  var el = document.getElementById('app').querySelectorAll('ul.ranked-list li');
+  for (var i in el){
+    el[i].innerHTML = parseInt(el[i].innerHTML) + n;
+  }
+
+}
+
+function deepestChild(){
+  var el = document.getElementById('grand-node').querySelectorAll('div');
+  console.log(el[el.length-1].innerHTML);
 }
